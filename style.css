@@ -1,50 +1,55 @@
-#sh {
-    width: 60px;
-    height: 45px;
-    position: relative;
-    margin: 30px auto;
-    transform: rotate(0deg);
-    transition: .5s ease-in-out;
-    cursor: pointer;
-} 
-#sh span {
-    display: block;
-    position: absolute;
-    height: 9px;
-    width: 100%;
-    background: #337AB7;
-    border-radius: 9px;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
+#sh_menu {
+  opacity: 0;
 }
-#sh span:nth-child(1) {
-    top: 0px;
+
+.menu {
+  display: flex; 
+  align-items: center;  
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
 }
-#sh span:nth-child(2),
-#sh span:nth-child(3) {
-    top: 18px;
+
+.menu > span,
+.menu > span::before,
+.menu > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color:black;
 }
-#sh span:nth-child(4) {
-    top: 36px;
+.menu > span::before {
+  content: '';
+  top: -8px;
 }
-#sh.open span:nth-child(1) {
-    top: 18px;
-    width: 0%;
-    left: 50%;
+.menu > span::after {
+  content: '';
+  top: 8px;
 }
-#sh.open span:nth-child(2) {
-    transform: rotate(45deg);
+
+
+#sh_menu:checked ~ .menu > span {
+  transform: rotate(45deg);
 }
-#sh.open span:nth-child(3) {
-    transform: rotate(-45deg);
+#sh_menu:checked ~ .menu > span::before {
+  top: 0;
+  transform: rotate(-90deg);
 }
-#sh.open span:nth-child(4) {
-    top: 18px;
-    width: 0%;
-    left: 50%;
+#sh_menu:checked ~ .menu > span::after {
+  top: 0;
+  transform: rotate(90deg);
 }
+#sh_menu:checked ~ .menu_box {
+  visibility: visible;
+  left: 0;
+}
+
+
 :root {
    --color-black: black;
 }
