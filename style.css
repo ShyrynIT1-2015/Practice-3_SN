@@ -84,7 +84,7 @@
    width: 1.5rem;
    height: 0.125rem;
    background-color: var(--color-black);
-   transition: 0.3s;
+   transition: 0.2s;
    opacity: 1;
 }
  .burger span:before, .burger span:after {
